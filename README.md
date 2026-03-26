@@ -12,9 +12,55 @@ Analyze the response and the Output.
 
 The aim is to understand how to request help from AI tools for tasks like writing Python code, integrating with APIs, comparing outputs, and generating actionable insights.
 
-Output: Python code was successfully developed to interact with multiple AI tools using API requests and responses.
-The program collected outputs from different AI tools and compared their responses for the same input task.
-The system analyzed the responses to identify differences in accuracy, response time, and quality of information.
-The experiment demonstrated how Python can automate communication with multiple AI services and generate useful insights from their outputs.
+Code for positive review:
+```
+from nltk.sentiment import SentimentIntensityAnalyzer 
+import nltk 
+nltk.download('vader_lexicon') 
 
-Result: The experiment was successfully completed by developing Python code compatible with multiple AI tools. It demonstrated that integrating APIs using Python helps automate tasks, compare outputs efficiently, and generate actionable insights from different AI systems.
+generated_text = "This smartphone offers outstanding battery life and an intelligent AI camera 
+that captures stunning photos." 
+print("Generated Review:\n") 
+print(generated_text) 
+
+sia = SentimentIntensityAnalyzer() 
+sentiment = sia.polarity_scores(generated_text) 
+print("\nSentiment Analysis:") 
+print(sentiment) 
+
+if sentiment['compound'] > 0: 
+  print("\nInsight: The review is positive and suitable for marketing promotion.") 
+else: 
+  print("\nInsight: The review tone is neutral or negative.")
+```
+Output: ![aa](https://github.com/user-attachments/assets/c82fc52a-ac9e-419c-b021-1814e93bd80e)
+
+Code for nrgative review:
+```
+from nltk.sentiment import SentimentIntensityAnalyzer
+import nltk
+
+nltk.download('vader_lexicon')
+
+
+generated_text = "This smartphone has very bad battery life and a poor AI camera that takes blurry photos."
+
+print("Generated Review:\n")
+print(generated_text)
+
+
+sia = SentimentIntensityAnalyzer()
+sentiment = sia.polarity_scores(generated_text)
+
+print("\nSentiment Analysis:")
+print(sentiment)
+
+if sentiment['compound'] > 0:
+    print("\nInsight: The review is positive and suitable for marketing promotion.")
+else:
+    print("\nInsight: The review tone is neutral or negative.")
+```
+
+Output: ![bb](https://github.com/user-attachments/assets/4b2aaf09-1b43-4e22-93c3-84188e181f09)
+
+Result: The program successfully executed.
